@@ -105,18 +105,40 @@
             <div class="container">
                 <h2>Request Analysis</h2>
 
-                <form action="mailto:your@email.com" method="post" enctype="text/plain">
-                    <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="email" name="Email" placeholder="Your Email" required>
-                    <textarea name="Message" placeholder="Brief description of contract" required></textarea>
+                <form id="contactForm">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Brief description of contract" required></textarea>
                     <button type="submit" class="btn-primary">Submit Request</button>
                 </form>
+
+                <script>
+                    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+                    e.preventDefault();
+
+                    const formData = new FormData(this);
+                    const data = Object.fromEntries(formData.entries());
+
+                    const response = await fetch("/api/send", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(data),
+                    });
+
+                    if (response.ok) {
+                        alert("Request sent successfully.");
+                        this.reset();
+                    } else {
+                        alert("Error sending request.");
+                    }
+                    });
+                </script>
             </div>
         </section>
 
         <footer>
             <div class="container">
-                &copy; 2026 Mathematical Contract Risk Analysis
+                © 2026 Mathematical Contract Risk Analysis
             </div>
         </footer>
 

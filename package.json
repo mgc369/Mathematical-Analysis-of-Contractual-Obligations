@@ -1,0 +1,9 @@
+{
+  "name": "singen-landing",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "resend": "^6.9.2"
+  }
+}
