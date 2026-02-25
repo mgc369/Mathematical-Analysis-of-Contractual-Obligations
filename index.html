@@ -112,27 +112,6 @@
                     <button type="submit" class="btn-primary">Submit Request</button>
                 </form>
 
-                <script>
-                    document.getElementById("contactForm").addEventListener("submit", async function(e) {
-                    e.preventDefault();
-
-                    const formData = new FormData(this);
-                    const data = Object.fromEntries(formData.entries());
-
-                    const response = await fetch("/api/send", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(data),
-                    });
-
-                    if (response.ok) {
-                        alert("Request sent successfully.");
-                        this.reset();
-                    } else {
-                        alert("Error sending request.");
-                    }
-                    });
-                </script>
             </div>
         </section>
 
@@ -141,6 +120,30 @@
                 © 2026 Mathematical Contract Risk Analysis
             </div>
         </footer>
+
+        <!-- EMAILJS -->
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script>
+            (function(){
+                emailjs.init("W_1yC6jZwHeJtcaLb");
+            })();
+
+            document.getElementById("contactForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                emailjs.sendForm(
+                    "service_9pg7vno",
+                    "request_form",
+                    this
+                ).then(function() {
+                    alert("Request sent successfully.");
+                    document.getElementById("contactForm").reset();
+                }, function(error) {
+                    alert("Error sending request.");
+                    console.log(error);
+                });
+            });
+        </script>
 
     </body>
 </html>
