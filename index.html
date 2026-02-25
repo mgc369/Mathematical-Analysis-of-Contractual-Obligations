@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,7 @@
             <div class="container">
                 <h2>The Core Risk</h2>
                 <p>
-                    Contracts contain embedded financial exposure that becomes visible only after penalties, 
+                    Contracts contain embedded financial exposure that becomes visible only after penalties,
                     cross-default triggers, or cascading obligations activate.
                 </p>
                 <ul>
@@ -33,7 +34,8 @@
                     <li>Structural imbalance of liability</li>
                 </ul>
                 <p>
-                    The central question is simple: What is the maximum cumulative financial exposure embedded in the agreement?
+                    The central question is simple: What is the maximum cumulative financial exposure embedded in the
+                    agreement?
                 </p>
             </div>
         </section>
@@ -69,7 +71,8 @@
                     The method calculates financial exposure. It does not estimate or speculate.
                 </p>
                 <p>
-                    While expert conclusions may vary between professionals, mathematical analysis produces a consistent and reproducible financial boundary of exposure.
+                    While expert conclusions may vary between professionals, mathematical analysis produces a consistent and
+                    reproducible financial boundary of exposure.
                 </p>
             </div>
         </section>
@@ -79,7 +82,8 @@
                 <h2>Methodology</h2>
                 <p>
                     The analytical framework is derived from the Theory of Convergence of Sets of Values.
-                    It determines the upper boundary of cumulative financial exposure and identifies structural financial breakpoints.
+                    It determines the upper boundary of cumulative financial exposure and identifies structural financial
+                    breakpoints.
                 </p>
                 <p>
                     Authorship filing submitted in the United States.<br>
@@ -124,21 +128,21 @@
         <!-- EMAILJS -->
         <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
         <script>
-            (function(){
+            (function () {
                 emailjs.init("W_1yC6jZwHeJtcaLb");
             })();
 
-            document.getElementById("contactForm").addEventListener("submit", function(e) {
+            document.getElementById("contactForm").addEventListener("submit", function (e) {
                 e.preventDefault();
 
                 emailjs.sendForm(
                     "service_9pg7vno",
-                    "request_form",
+                    "template_2ugndda",
                     this
-                ).then(function() {
+                ).then(function () {
                     alert("Request sent successfully.");
                     document.getElementById("contactForm").reset();
-                }, function(error) {
+                }, function (error) {
                     alert("Error sending request.");
                     console.log(error);
                 });
@@ -146,4 +150,5 @@
         </script>
 
     </body>
+
 </html>
